@@ -25,7 +25,7 @@ RUN pg_ctlcluster 10 main start \
  && su postgres -c 'createuser unifi-protect -d' \
  && pg_ctlcluster 10 main stop \
  && ln -s /mnt/data/unifi-protect/logs /var/log/unifi-protect \
- && mkdir /mnt/data/unifi-protect /srv/unifi-protect/backups /var/run/unifi-protect \
+ && mkdir /mnt/data/unifi-protect /mnt/data/unifi-protect/backups /var/run/unifi-protect \
  && chown unifi-protect:unifi-protect /mnt/data/unifi-protect /mnt/data/unifi-protect/backups /var/run/unifi-protect \
  && ln -s /tmp /mnt/data/unifi-protect/temp
 
