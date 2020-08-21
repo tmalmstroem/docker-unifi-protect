@@ -24,13 +24,12 @@ RUN apt-get remove --purge --auto-remove -y wget \
 RUN pg_ctlcluster 10 main start \
  && su postgres -c 'createuser unifi-protect -d' \
  && pg_ctlcluster 10 main stop \
- && ln -s /mnt/data/unifi-protect/logs /var/log/unifi-protect \
- && mkdir /mnt/data/unifi-protect /mnt/data/unifi-protect/backups /var/run/unifi-protect \
- && chown unifi-protect:unifi-protect /mnt/data/unifi-protect /mnt/data/unifi-protect/backups /var/run/unifi-protect \
+ && mkdir /mnt/data/unifi-protect /mnt/data/unifi-protect/backups /mnt/data/unifi-protect/run \
+ && chown unifi-protect:unifi-protect /mnt/data/unifi-protect /mnt/data/unifi-protect/backups /mnt/data/unifi-protect/logs /mnt/data/unifi-protect/run \
  && ln -s /tmp /mnt/data/unifi-protect/temp
 
 # Configure
-COPY config.json /etc/unifi-protect/config.json
+COPY config.json /mnt/data/unifi-protect/config.json
 
 # Supply simple script to run postgres and unifi-protect
 COPY init /init
