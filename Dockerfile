@@ -5,7 +5,7 @@
 
 #This is a forked version of James T. Lee's code, who is the copyright holder. His code was modified to create a version for ARM64 on the UDM base.
 
-FROM ubuntu:18.04
+FROM ubuntu:bionic
 
 # Install build tools
 RUN apt-get update \
