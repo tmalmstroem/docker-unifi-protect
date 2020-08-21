@@ -1,5 +1,5 @@
 {
   "backupPaths": [
-    "/srv/unifi-protect/backups"
+    "/mnt/data/unifi-protect/backups"
   ]
 }
