@@ -5,7 +5,7 @@
 
 #This is a forked version of James T. Lee's code, who is the copyright holder. His code was modified to create a version for ARM64 on the UDM base.
 
-FROM arm64v8/ubuntu:bionic
+FROM --platform=linux/arm64 ubuntu:bionic
 
 # Install build tools
 RUN apt-get update \
@@ -13,7 +13,7 @@ RUN apt-get update \
 
 # Install unifi-protect and its dependencies
 RUN wget --progress=dot:mega https://apt.ubnt.com/pool/beta/u/unifi-protect/unifi-protect.jessie~stretch~xenial~bionic_arm64.v1.13.0-beta.16.deb -O unifi-protect.deb \
- && apt install -y ./unifi-protect.deb \
+ && dpkg --ignore-depends -i ./unifi-protect.deb \
  && rm -f unifi-protect.deb
 
 # Cleanup
