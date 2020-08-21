@@ -29,6 +29,10 @@ RUN pg_ctlcluster 10 main start \
  && chown unifi-protect:unifi-protect /srv/unifi-protect /srv/unifi-protect/backups /var/run/unifi-protect \
  && ln -s /tmp /srv/unifi-protect/temp
 
+# Add repo for future updates
+&& add-apt-repository 'deb http://apt.ubnt.com bionic main'
+&& apt-key adv --keyserver keyserver.ubuntu.com --recv 97B46B8582C6571E
+
 # Configure
 COPY config.json /etc/unifi-protect/config.json
 
