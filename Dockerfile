@@ -30,8 +30,8 @@ RUN pg_ctlcluster 10 main start \
  && ln -s /tmp /srv/unifi-protect/temp
 
 # Add repo for future updates
-&& add-apt-repository 'deb http://apt.ubnt.com bionic main'
-&& apt-key adv --keyserver keyserver.ubuntu.com --recv 97B46B8582C6571E
+#&& add-apt-repository 'deb http://apt.ubnt.com bionic main'
+#&& apt-key adv --keyserver keyserver.ubuntu.com --recv 97B46B8582C6571E
 
 # Configure
 COPY config.json /etc/unifi-protect/config.json
