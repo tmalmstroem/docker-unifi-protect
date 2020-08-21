@@ -1,5 +1,5 @@
 {
   "backupPaths": [
-    "/mnt/data/unifi-protect/backups"
+    "/etc/unifi-protect/config.json"
   ]
 }
